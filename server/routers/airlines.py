@@ -16,7 +16,6 @@ async def get_airlines(q: str) -> list[AirlineModel]:
         LOWER(icao) LIKE LOWER(?) OR
         LOWER(iata) LIKE LOWER(?)
         ORDER BY LOWER(name) = LOWER(?) DESC,
-                 LENGTH(name) ASC,
                  LOWER(icao) = LOWER(?) DESC,
                  LOWER(iata) = LOWER(?)
         LIMIT 5;

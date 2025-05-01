@@ -245,11 +245,6 @@ async def get_flights(id: int|None = None,
     date_filter += " AND " if start and end else ""
     date_filter += f"JULIANDAY(date) < JULIANDAY('{end}')" if end else ""
 
-    if sort == Sort.DATE:
-        sort_clause = f"ORDER BY f.date {order.value}, f.departure_time {order.value}"
-    else:
-        sort_clause = f"ORDER BY f.{sort.value} {order.value}"
-
     query = f"""
         SELECT 
             f.*,
@@ -264,7 +259,7 @@ async def get_flights(id: int|None = None,
         {user_filter}
         {id_filter}
         {date_filter}
-        {sort_clause}
+        ORDER BY f.{sort.value} {order.value}
         LIMIT {limit}
         OFFSET {offset};"""
 

@@ -168,9 +168,6 @@ export default function Settings() {
                     <Label text="MyFlightRadar24" />
                     <Input type="file" name="myflightradar24" />
 
-                    <Label text="Flighty" />
-                    <Input type="file" name="flighty" />
-
                     <Label text="Custom CSV" />
                     <Input type="file" name="custom" />
 
